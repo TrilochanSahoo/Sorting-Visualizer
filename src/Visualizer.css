@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    left: 10rem;
+    top: 10rem;
+}
+
+.container-box{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.bar{
+    width: 1.5rem;
+    margin: 0px 2px;
+    display: inline-block;
+    color: black;
+    background-color: blue;
+}
+
+@media (max-width:900px) {
+    .container{
+        left: 0;
+    }
+    .bar{
+        width: 1rem;
+    }
+}
