@@ -21,8 +21,8 @@ export default class Visualizer extends Component{
     }
     resetArray(){
         const array = [];
-        for(var i=0;i<100;i++){
-            array.push(randomNumInterval(5,500))
+        for(var i=0;i<30;i++){
+            array.push(randomNumInterval(5,200))
             
         }
         this.setState({array})
@@ -54,7 +54,7 @@ export default class Visualizer extends Component{
                 setTimeout(()=>{
                     const [barOneIdx, newHeight] = newAnimations[i]
                     const barOneStyle = arrayBars[barOneIdx].style
-                    barOneStyle.height = `${newHeight}px`
+                    barOneStyle.height = `${newHeight*2}px`
                 },i*20)
             }
         }
@@ -64,26 +64,18 @@ export default class Visualizer extends Component{
         const {array} = this.state
         // console.log(array)
         return (
+            <>
                 <div className="container">
-                     {/* {array.map((value,Idx)=>(
+                     {array.map((value,Idx)=>(
                     <div className="container-box" key={Idx}>
                         <div className="num">{value}</div>
                         <div className="bar" key={Idx} style={{height:`${value*2}px`}}></div>
                         
-                    </div>))} */}
-                    {array.map((value, idx) => (
-          <div
-            className="bar"
-            key={idx}
-            style={{
-              backgroundColor: 'turquoise',
-              height: `${value}px`,
-            }}></div>
-        ))}
-                    
+                    </div>))}    
+                </div>
                     <button onClick={()=> this.resetArray()}>reset</button>
                     <button onClick={()=> this.MergeSort()}>Merge Sort</button>
-                </div>
+            </>
         )
     }
     

@@ -1,39 +1,40 @@
 
 
-function merge(array,l,mid,h,b,animations){
+function merge(array,l,mid,h,auArray,animations){
     let i = l
     let j = mid + 1
     let k = l
     while(i<=mid && j<=h){
         const animation ={}
         animation.comparision = [i,j]
-        if(b[i]<b[j]){
-            animation.swap=[k,i]
-            array[k++]=b[i++]
+        if(auArray[i]<=auArray[j]){
+            animation.swap=[k,auArray[i]]
+            array[k++]=auArray[i++]
         }
         else{
-            animation.swap=[k,j]
-            array[k++] = b[j++]
+            animation.swap=[k,auArray[j]]
+            array[k++] = auArray[j++]
         }
+        animations.push(animation)
     }
     while(i<=mid){
         animations.push({
             comparision: [i,i],
-            swap: [k,i]
+            swap: [k,auArray[i]]
         })
-        array[k++] = b[i++]
+        array[k++] = auArray[i++]
     }
     while(j<=h){
         animations.push({
             comparision: [j,j],
-            swap: [k,j]
+            swap: [k,auArray[j]]
         })
-        array[k++] = b[j++]
+        array[k++] = auArray[j++]
     }
 }
 
 function MergeSort(array,l,h,auArray,animation){
-    if (l===h)return;
+    if (l===h) return;
     // console.log("before sorting "+array)
     let mid=Math.floor((l+h)/2)
     MergeSort(auArray,l,mid,array,animation)
@@ -43,11 +44,11 @@ function MergeSort(array,l,h,auArray,animation){
 }
 
 export function MSort(array){
-    const animation =[]
+    const animations =[]
     // console.log("before: "+array)
-    if(array.length<=1)return array
+    if(array.length<=1) return array
     const auArray = array.slice()
-    MergeSort(array,0,array.length-1,auArray,animation)
+    MergeSort(array,0,array.length-1,auArray,animations)
     // console.log("after: "+array)
-    return animation
+    return animations
 }
