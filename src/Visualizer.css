@@ -16,7 +16,7 @@
     margin: 0px 2px;
     display: inline-block;
     color: black;
-    background-color: blue;
+    background-color: turquoise;
 }
 
 @media (max-width:900px) {
@@ -25,5 +25,6 @@
     }
     .bar{
         width: 1rem;
+        font-size: small;
     }
 }

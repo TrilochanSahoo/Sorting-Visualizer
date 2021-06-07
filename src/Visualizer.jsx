@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {MSort} from './SortingAlgorithm/SortingAlgorithms'
+import {MSort} from './SortingAlgorithm/MergeSortingAlgorithms'
 
 import './Visualizer.css';
 
@@ -39,6 +39,7 @@ export default class Visualizer extends Component{
         }
         for(let i=0; i<newAnimations.length;i++){
             const arrayBars = document.getElementsByClassName("bar");
+            const arrayValue = document.getElementsByClassName("num");
             const isColorChange = i % 3 !==2
             if (isColorChange){
                 const [barOneIdx, barTwoIdx] = newAnimations[i]
@@ -53,8 +54,12 @@ export default class Visualizer extends Component{
             else{
                 setTimeout(()=>{
                     const [barOneIdx, newHeight] = newAnimations[i]
+                    const barOneValue = arrayBars[barOneIdx]
                     const barOneStyle = arrayBars[barOneIdx].style
                     barOneStyle.height = `${newHeight*2}px`
+                    barOneValue.innerHTML = `${newHeight}`
+                    
+
                 },i*20)
             }
         }
@@ -68,13 +73,14 @@ export default class Visualizer extends Component{
                 <div className="container">
                      {array.map((value,Idx)=>(
                     <div className="container-box" key={Idx}>
-                        <div className="num">{value}</div>
-                        <div className="bar" key={Idx} style={{height:`${value*2}px`}}></div>
+                        {/* <div className="num" >{value}</div> */}
+                        <div className="bar" key={Idx} style={{height:`${value*2}px`}}>{value}</div>
                         
                     </div>))}    
                 </div>
                     <button onClick={()=> this.resetArray()}>reset</button>
                     <button onClick={()=> this.MergeSort()}>Merge Sort</button>
+                    
             </>
         )
     }
