@@ -19,21 +19,17 @@ function BubbleSort(array, length ,auArray, animations){
             // animations.push(j,j+1)
             if(array[j]>array[j+1]){
                 // animations.push(j,array[j+1])
-                animation.swap=[j,array[j+1]]
-                // animation.swap=[j,array[j+1]]
+                animation.swap1=[j,array[j+1]]
+                animation.swap2=[j+1,array[j]]
                 let temp = array[j]
                 array[j] = array[j+1]
                 array[j+1] = temp
                 flag = 1
                 k++
              }
-            
-            else if(array[j]==array[j+1]){
-                
-                animation.swap =[j,array[j+1]]
-            }
             else{
-                animation.swap =[j,array[j]]
+                animation.swap1 =[j,array[j]]
+                animation.swap2 =[j+1,array[j+1]]
 
             }
             animations.push(animation)
