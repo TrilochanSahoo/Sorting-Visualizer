@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {MSort} from './SortingAlgorithm/MergeSortingAlgorithms'
 import {BSort} from './SortingAlgorithm/BubbleSortAlgorithm'
+import {ISort} from './SortingAlgorithm/InsertionSortAlgorithm'
 
 import './Visualizer.css';
 
@@ -114,6 +115,10 @@ export default class Visualizer extends Component{
             }
         }
     }
+
+    InsertionSort(){
+        const animations = ISort(this.state.array);
+    }
     
     render(){
         const {array} = this.state
@@ -129,8 +134,9 @@ export default class Visualizer extends Component{
                     </div>))}    
                 </div>
                     <button onClick={()=> this.resetArray()}>reset</button>
-                    <button onClick={()=> this.MergeSort()}>Merge Sort</button>
                     <button onClick={()=> this.BubbleSort()}>Bubble Sort</button>
+                    <button onClick={()=> this.InsertionSort()}>Insertion Sort</button>
+                    <button onClick={()=> this.MergeSort()}>Merge Sort</button>
                     
             </>
         )

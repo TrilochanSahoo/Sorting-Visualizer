@@ -1,15 +1,14 @@
 export function BSort(array){
     const animations =[]
-    const auArray = array.slice()
     if(array.length<=1)
         return array
-    BubbleSort(array, array.length,auArray,animations)
+    BubbleSort(array, array.length,animations)
     return animations
 }
 
-function BubbleSort(array, length ,auArray, animations){
+function BubbleSort(array, length , animations){
     // const array = [10,20,30,40,50,60,70,71,72,73]
-    let flag ,k=0
+    let flag 
     for (let i=0;i<length-1;i++){
         flag = 0
         for(let j=0 ; j<length-1-i;j++){
@@ -25,7 +24,6 @@ function BubbleSort(array, length ,auArray, animations){
                 array[j] = array[j+1]
                 array[j+1] = temp
                 flag = 1
-                k++
              }
             else{
                 animation.swap1 =[j,array[j]]
