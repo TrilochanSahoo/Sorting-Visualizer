@@ -5,7 +5,7 @@ function InsertionSort(array,animations){
         x=array[i]
         while(j>-1 && array[j]>x){
             const animation = {}
-            animation.comparision=[j+1,j]
+            animation.comparision=[j,j+1]
             animation.swap1=[j+1,array[j]]
             animation.swap2=[j,array[j+1]]
             array[j+1]=array[j]
@@ -13,7 +13,11 @@ function InsertionSort(array,animations){
             animations.push(animation)
         }
         if(j===-1){
-            
+            const animation = {}
+            animation.comparision=[j+1,j+1]
+            animation.swap1=[j+1,x]
+            animation.swap2=[j+1,x]
+            animations.push(animation)
         }
         else{
             const animation = {}
