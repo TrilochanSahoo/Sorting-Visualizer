@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {MSort} from './SortingAlgorithm/MergeSortingAlgorithms'
 import {BSort} from './SortingAlgorithm/BubbleSortAlgorithm'
 import {ISort} from './SortingAlgorithm/InsertionSortAlgorithm'
+import {SSort} from './SortingAlgorithm/SelectionSortAlgorithm'
 
 import './Visualizer.css';
 
@@ -138,7 +139,7 @@ export default class Visualizer extends Component{
                 setTimeout(()=>{
                     barOneStyle.backgroundColor = color
                     barTwoStyle.backgroundColor = color
-                },i*20)
+                },i*5)
                 
             }
             else{
@@ -149,7 +150,7 @@ export default class Visualizer extends Component{
                         const barOneStyle = arrayBars[barOneIdx].style
                         barOneStyle.height = `${newHeight*2}px`
                         barOneValue.innerHTML = `${newHeight}`
-                    },i*20)
+                    },i*5)
                 }else{
                     setTimeout(()=>{
                         const [barTwoIdx, newHeight] = newAnimations[i]
@@ -157,12 +158,16 @@ export default class Visualizer extends Component{
                         const barTwoStyle = arrayBars[barTwoIdx].style
                         barTwoStyle.height = `${newHeight*2}px`
                         barTwoValue.innerHTML = `${newHeight}`
-                    },i*20)
+                    },i*5)
                 }
             }
         }
     }
     
+    SelectionSort(){
+        const animations = SSort(this.state.array)
+    }
+
     render(){
         const {array} = this.state
         // console.log(array)
@@ -179,6 +184,7 @@ export default class Visualizer extends Component{
                     <button onClick={()=> this.resetArray()}>reset</button>
                     <button onClick={()=> this.BubbleSort()}>Bubble Sort</button>
                     <button onClick={()=> this.InsertionSort()}>Insertion Sort</button>
+                    <button onClick={()=> this.SelectionSort()}>Selection Sort</button>
                     <button onClick={()=> this.MergeSort()}>Merge Sort</button>
                     
             </>
