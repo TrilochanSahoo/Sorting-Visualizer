@@ -3,6 +3,7 @@ import {MSort} from './SortingAlgorithm/MergeSortingAlgorithms'
 import {BSort} from './SortingAlgorithm/BubbleSortAlgorithm'
 import {ISort} from './SortingAlgorithm/InsertionSortAlgorithm'
 import {SSort} from './SortingAlgorithm/SelectionSortAlgorithm'
+import {QSort} from './SortingAlgorithm/QuickSortAlgorithm'
 
 import './Visualizer.css';
 
@@ -211,6 +212,10 @@ export default class Visualizer extends Component{
         }
     }
 
+    QuickSort(){
+        const animations = QSort(this.state.array)
+    }
+
     render(){
         const {array} = this.state
         // console.log(array)
@@ -229,6 +234,7 @@ export default class Visualizer extends Component{
                     <button onClick={()=> this.InsertionSort()}>Insertion Sort</button>
                     <button onClick={()=> this.SelectionSort()}>Selection Sort</button>
                     <button onClick={()=> this.MergeSort()}>Merge Sort</button>
+                    <button onClick={()=> this.QuickSort()}>Quick Sort</button>
                     
             </>
         )
