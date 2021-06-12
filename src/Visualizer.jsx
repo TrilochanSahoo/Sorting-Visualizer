@@ -261,7 +261,7 @@ export default class Visualizer extends Component{
     }
 
     CountSort(){
-
+        const animations = CSort(this.state.array);
     }
     render(){
         const {array} = this.state
