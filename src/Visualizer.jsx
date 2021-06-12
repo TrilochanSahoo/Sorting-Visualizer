@@ -4,6 +4,7 @@ import {BSort} from './SortingAlgorithm/BubbleSortAlgorithm'
 import {ISort} from './SortingAlgorithm/InsertionSortAlgorithm'
 import {SSort} from './SortingAlgorithm/SelectionSortAlgorithm'
 import {QSort} from './SortingAlgorithm/QuickSortAlgorithm'
+import {CSort} from './SortingAlgorithm/CountSortAlgorithm'
 
 import './Visualizer.css';
 
@@ -259,6 +260,9 @@ export default class Visualizer extends Component{
         }
     }
 
+    CountSort(){
+
+    }
     render(){
         const {array} = this.state
         // console.log(array)
@@ -278,6 +282,7 @@ export default class Visualizer extends Component{
                     <button onClick={()=> this.SelectionSort()}>Selection Sort</button>
                     <button onClick={()=> this.MergeSort()}>Merge Sort</button>
                     <button onClick={()=> this.QuickSort()}>Quick Sort</button>
+                    <button onClick={()=> this.CountSort()}>Count Sort</button>
                     
             </>
         )
