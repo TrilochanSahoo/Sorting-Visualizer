@@ -262,20 +262,47 @@ export default class Visualizer extends Component{
 
     CountSort(){
         const animations = CSort(this.state.array);
+
+        const newAnimations = []
+        for(const animation of animations){
+            // newAnimations.push(animation.comparision)
+            newAnimations.push(animation.comparision)
+            newAnimations.push(animation.swap)
+        }
+        // console.log(newAnimations)
+        for(let i=0; i<newAnimations.length;i++){
+            const arrayBars = document.getElementsByClassName("bar");
+            const isColorChange = i % 2 !==1
+            console.log(isColorChange)
+            if (isColorChange){
+                const [barOneIdx] = newAnimations[i]
+                const barOneStyle = arrayBars[barOneIdx].style
+                // const barTwoStyle = arrayBars[barTwoIdx].style
+                const color= i % 2 ===0?'red':'turquoise';
+                setTimeout(()=>{
+                    barOneStyle.backgroundColor = color
+                    // barTwoStyle.backgroundColor = color
+                },i*20)
+            }
+            else{
+                setTimeout(()=>{
+                    const [barOneIdx, newHeight] = newAnimations[i]
+                    const barOneValue = arrayBars[barOneIdx]
+                    const barOneStyle = arrayBars[barOneIdx].style
+                    barOneStyle.backgroundColor = `turquoise`
+                    barOneStyle.height = `${newHeight*2}px`
+                    barOneValue.innerHTML = `${newHeight}`
+                    
+
+                },i*20)
+            }
+        }
     }
     render(){
         const {array} = this.state
         // console.log(array)
         return (
             <>
-                <div className="container">
-                     {array.map((value,Idx)=>(
-                    <div className="container-box" key={Idx}>
-                        {/* <div className="num" >{value}</div> */}
-                        <div className="bar" key={Idx} style={{height:`${value*2}px`}}>{value}</div>
-                        
-                    </div>))}    
-                </div>
                     <button onClick={()=> this.resetArray()}>reset</button>
                     <button onClick={()=> this.BubbleSort()}>Bubble Sort</button>
                     <button onClick={()=> this.InsertionSort()}>Insertion Sort</button>
@@ -283,7 +310,12 @@ export default class Visualizer extends Component{
                     <button onClick={()=> this.MergeSort()}>Merge Sort</button>
                     <button onClick={()=> this.QuickSort()}>Quick Sort</button>
                     <button onClick={()=> this.CountSort()}>Count Sort</button>
-                    
+                <div className="container">
+                     {array.map((value,Idx)=>(
+                    <div className="container-box" key={Idx}>
+                        <div className="bar" key={Idx} style={{height:`${value*2}px`}}>{value}</div>
+                    </div>))}    
+                </div>
             </>
         )
     }
