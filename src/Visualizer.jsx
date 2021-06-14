@@ -5,6 +5,7 @@ import {ISort} from './SortingAlgorithm/InsertionSortAlgorithm'
 import {SSort} from './SortingAlgorithm/SelectionSortAlgorithm'
 import {QSort} from './SortingAlgorithm/QuickSortAlgorithm'
 import {CSort} from './SortingAlgorithm/CountSortAlgorithm'
+import {RSort} from './SortingAlgorithm/RadixSortAlgorithm'
 
 import './Visualizer.css';
 
@@ -298,6 +299,11 @@ export default class Visualizer extends Component{
             }
         }
     }
+
+
+    RadixSort(){
+        const animations = RSort(this.state.array)
+    }
     render(){
         const {array} = this.state
         // console.log(array)
@@ -310,6 +316,7 @@ export default class Visualizer extends Component{
                     <button onClick={()=> this.MergeSort()}>Merge Sort</button>
                     <button onClick={()=> this.QuickSort()}>Quick Sort</button>
                     <button onClick={()=> this.CountSort()}>Count Sort</button>
+                    <button onClick={()=> this.RadixSort()}>Radix Sort</button>
                 <div className="container">
                      {array.map((value,Idx)=>(
                     <div className="container-box" key={Idx}>
