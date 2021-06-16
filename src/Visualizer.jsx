@@ -4,6 +4,7 @@ import {BSort} from './SortingAlgorithm/BubbleSortAlgorithm'
 import {ISort} from './SortingAlgorithm/InsertionSortAlgorithm'
 import {SSort} from './SortingAlgorithm/SelectionSortAlgorithm'
 import {QSort} from './SortingAlgorithm/QuickSortAlgorithm'
+import {HSort} from './SortingAlgorithm/HeapSortAlgorithm'
 import {CSort} from './SortingAlgorithm/CountSortAlgorithm'
 import {RSort} from './SortingAlgorithm/RadixSortAlgorithm'
 
@@ -261,6 +262,10 @@ export default class Visualizer extends Component{
         }
     }
 
+    HeapSort(){
+        const animations = HSort(this.state.array)
+    }
+
     CountSort(){
         const animations = CSort(this.state.array);
 
@@ -350,6 +355,7 @@ export default class Visualizer extends Component{
                     <button onClick={()=> this.SelectionSort()}>Selection Sort</button>
                     <button onClick={()=> this.MergeSort()}>Merge Sort</button>
                     <button onClick={()=> this.QuickSort()}>Quick Sort</button>
+                    <button onClick={()=> this.HeapSort()}>Heap Sort</button>
                     <button onClick={()=> this.CountSort()}>Count Sort</button>
                     <button onClick={()=> this.RadixSort()}>Radix Sort</button>
                 <div className="container">
