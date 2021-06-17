@@ -1,9 +1,10 @@
 .container{
     display: flex;
+    justify-content: center;
+    margin-top: 8rem;
+    /* align-items: center; */
     flex-direction: row;
-    position: absolute;
-    left: 10rem;
-    top: 10rem;
+
 }
 
 .container-box{
@@ -19,12 +20,40 @@
     background-color: turquoise;
 }
 
+.btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+button {
+    background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  padding: 16px 30px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+button:hover {
+    background-color: black;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
 @media (max-width:900px) {
     .container{
-        left: 0;
+     justify-content: stretch;   
     }
     .bar{
         width: 1rem;
         font-size: small;
+    }
+    .btn{
+        margin-left: 15rem;
+    }
+    button{
+        padding: 10px;
+        font-size: 14px;
     }
 }

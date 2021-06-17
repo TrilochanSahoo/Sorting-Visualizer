@@ -89,6 +89,7 @@ export default class Visualizer extends Component{
         // console.log(array)
         return (
             <>
+                <div className="btn">
                     <button onClick={()=> this.resetArray()}>reset</button>
                     <button onClick={()=> this.BubbleSort()}>Bubble Sort</button>
                     <button onClick={()=> this.InsertionSort()}>Insertion Sort</button>
@@ -98,6 +99,7 @@ export default class Visualizer extends Component{
                     <button onClick={()=> this.HeapSort()}>Heap Sort</button>
                     <button onClick={()=> this.CountSort()}>Count Sort</button>
                     <button onClick={()=> this.RadixSort()}>Radix Sort</button>
+                </div>
                 <div className="container">
                      {array.map((value,Idx)=>(
                     <div className="container-box" key={Idx}>
